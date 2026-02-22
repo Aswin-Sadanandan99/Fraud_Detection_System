@@ -22,7 +22,7 @@ columns = pickle.load(open("columns.pkl", "rb"))
 st.markdown(
     """
     <h1 style='text-align: center; color: #4CAF50;'>
-        💳 AI Powered Fraud Detection System
+        💳 Fraud Detection System
     </h1>
     <p style='text-align: center;'>
         Enter transaction details to predict whether it is Fraud or Legitimate.
@@ -119,3 +119,4 @@ if predict_button:
     else:
 
         st.error("🔴 Risk Level: HIGH")
+
