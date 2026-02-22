@@ -4,6 +4,7 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 import pickle
+import gzip
 
 # Page configuration
 st.set_page_config(
@@ -13,7 +14,8 @@ st.set_page_config(
 )
 
 # Load model and columns
-model = pickle.load(open("model.pkl", "rb"))
+with gzip.open("model.pkl.gz", "rb") as f:
+    model = pickle.load(f)
 columns = pickle.load(open("columns.pkl", "rb"))
 
 # ---------- HEADER ----------
@@ -115,4 +117,5 @@ if predict_button:
     elif probability < 0.7:
         st.warning("🟡 Risk Level: MEDIUM")
     else:
+
         st.error("🔴 Risk Level: HIGH")
